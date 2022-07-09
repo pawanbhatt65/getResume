@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CV Generaters</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+  <!-- form part 1 -->
+  <section class="cv-generate" id="cv-form">
+    <div class="container-fluid container-xl">
+      <div class="row">
+        <div class="col-12 my-3 py-3 text-center">
+          <h1>Resume</h1>
+        </div>
+        <!-- first colomn -->
+        <div class="col-md-6">
+          <h2>Personal Information</h2>
+          <!-- name -->
+          <div class="form-group my-3">
+            <label for="nameField">Name</label>
+            <input type="text" name="nameField" id="nameField" placeholder="Enter here"
+              class="form-control form-control-lg" onkeypress="return onlyAlpha(event)" required>
+          </div>
+          <!-- phone number -->
+          <div class="form-group my-3">
+            <label for="numberField">Phone Number</label>
+            <input type="tel" name="numberField" id="numberField" maxlength="10" placeholder="Enter here"
+              class="form-control form-control-lg" onkeypress="return onlyNumber()" required>
+          </div>
+          <!-- address -->
+          <div class="form-group my-3">
+            <label for="addressField">Your Address</label>
+            <textarea name="addressField" id="addressField" placeholder="Enter here"
+              class="form-control form-control-lg" required></textarea>
+          </div>
+          <div class="form-group my-3">
+            <label for="fileField">Select your Photo</label>
+            <input type="file" name="fileField" id="fileField" class="form-control form-control-lg">
+          </div>
+          <h3>Important Links</h3>
+          <!-- facebook link -->
+          <div class="form-group my-3">
+            <label for="facebookField">Facebook</label>
+            <input type="text" name="facebookField" id="facebookField" placeholder="Enter here"
+              class="form-control form-control-lg">
+          </div>
+          <!-- Linkedin link -->
+          <div class="form-group my-3">
+            <label for="linkedinField">Linkedin</label>
+            <input type="text" name="linkedinField" id="linkedinField" placeholder="Enter here"
+              class="form-control form-control-lg">
+          </div>
+          <!-- Naukri link -->
+          <div class="form-group my-3">
+            <label for="naukrikField">Naukri</label>
+            <input type="text" name="naukrikField" id="naukrikField" placeholder="Enter here"
+              class="form-control form-control-lg">
+          </div>
+        </div>
+        <!-- second colomn -->
+        <div class="col-md-6">
+          <h2>Professional Information</h2>
+          <!-- objective -->
+          <div class="form-group my-3">
+            <label for="objectiveField">Objective</label>
+            <textarea name="objectiveField" id="objectiveField" placeholder="Enter here" rows="5"
+              class="form-control form-control-lg"></textarea>
+          </div>
+          <!-- work experience -->
+          <div class="form-group my-3" id="we">
+            <label for="weField">Work Experience</label>
+            <textarea name="weField" id="weField" placeholder="Enter here" rows="3"
+              class="form-control form-control-lg workExField"></textarea>
+            <!-- add addButton -->
+            <div class="container my-3 text-center" id="weAddButton">
+              <button onclick="addWorkEx()" class="btn btn-dark btn-lg">Add</button>
+            </div>
+          </div>
+          <!-- academic qualification -->
+          <div class="form-group my-3" id="eq">
+            <label for="eqField">Education Qualification</label>
+            <textarea name="eqField" id="eqField" placeholder="Enter here" rows="3"
+              class="form-control form-control-lg eduQuaField"></textarea>
+            <!-- add addButton -->
+            <div class="container my-3 text-center" id="eqAddButton">
+              <button onclick="addEducationQul()" class="btn btn-dark btn-lg">Add</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 text-center my-2">
+        <button onclick="generateResume()" class="btn btn-primary btn-lg">Generate Resume</button>
+      </div>
+    </div>
+  </section>
+  <!-- form part 2 -->
+  <section class="cv-template" id="cvTemplate">
+    <div class="container">
+      <div class="row">
+        <!-- left side part of form  -->
+        <div class="col-4 bg-primary pt-3">
+          <div class="form-left">
+            <div class="form-img">
+              <img
+                src="https://st.depositphotos.com/2101611/3925/v/600/depositphotos_39258143-stock-illustration-businessman-avatar-profile-picture.jpg"
+                alt="" class="img-fluid" id="imgTemplate">
+            </div>
+            <div class="form-personal">
+              <h4 id="nameTemplate1">Rihan</h4>
+              <p id="contactTemplate">+91 233848, +91 98448784q4</p>
+              <p id="addressTemplate">address Lorem ipsum dolor sit amet.</p>
+              <hr>
+              <p><a class="text-white" id="facebookTemplate" href="#">facebook</a></p>
+              <p><a class="text-white" id="linkTemplate" href="#">Linkedin</a></p>
+              <p><a class="text-white" id="naukriTemplate" href="#">Naukri</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-8">
+          <div class="form-right">
+            <h1 class="text-center" id="nameTemplate2">aaryan</h1>
+            <!-- objective field -->
+            <div class="card text-bg-light mb-3">
+              <div class="card-header bg-primary">Objective</div>
+              <div class="card-body">
+                <p class="card-text" id="objectiveTemplate">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Delectus nihil mollitia
+                  enim? Voluptas iure adipisci aut possimus minima commodi doloremque itaque. Illum, pariatur dicta in
+                  quis earum doloribus! Nesciunt dolorem adipisci nam, natus necessitatibus sit neque ipsam. Tempore,
+                  provident aspernatur ab quaerat nostrum eum molestias cum, labore adipisci distinctio nobis.</p>
+              </div>
+            </div>
+            <!-- Work Experience -->
+            <div class="card text-bg-light mb-3">
+              <div class="card-header bg-primary">Work Experience</div>
+              <div class="card-body">
+                <ul class="card-text" id="experienceTemplate">
+                  <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit.</li>
+                  <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit.</li>
+                  <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit.</li>
+                  <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit.</li>
+                  <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit.</li>
+                </ul>
+              </div>
+            </div>
+            <!-- Education Qualification -->
+            <div class="card text-bg-light mb-3">
+              <div class="card-header bg-primary">Education Qualification</div>
+              <div class="card-body">
+                <ul class="card-text" id="qualificationTemplate">
+                  <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit.</li>
+                  <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit.</li>
+                  <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit.</li>
+                  <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit.</li>
+                  <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 text-center">
+          <button onclick=" window.print()" class="btn btn-success btn-lg">Print Resume</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/script.js"></script>
+</body>
+
+</html>
